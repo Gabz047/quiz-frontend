@@ -1,3 +1,4 @@
+@media (max-width: 700px) {
 .box-menuIcon {
   height: 20px;
   width: 50px;
@@ -5,6 +6,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: start;
+  margin-right: 1.5rem;
 }
 
 .menu-bars {
@@ -50,4 +52,14 @@
   transform: rotate(-135deg);
   width: 70%;
   transition: 0.3s ease-in-out;
+}
+}
+
+.suspense-box {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 48px;
+  height: 10rem;
 }

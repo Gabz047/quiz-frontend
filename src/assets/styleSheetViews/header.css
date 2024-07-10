@@ -1,4 +1,11 @@
 .header-container {
     width: 100%;
-    border: 2px solid;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-box {
+    margin-left: 1.5rem;
 }
