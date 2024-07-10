@@ -61,5 +61,5 @@
   position: absolute;
   right: 0;
   top: 48px;
-  height: 10rem;
+  height: calc(100vh - 48px);
 }

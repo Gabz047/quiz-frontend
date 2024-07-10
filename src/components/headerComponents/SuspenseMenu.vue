@@ -17,10 +17,3 @@ const activated = ref(false)
         <NavLinks class="suspense-links"/>
     </div>
 </template>
-
-<style scoped>
-.suspense-links {
-    flex-direction: column;
-    width: 8rem;
-}
-</style>
