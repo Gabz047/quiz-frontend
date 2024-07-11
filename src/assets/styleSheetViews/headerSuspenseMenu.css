@@ -62,7 +62,7 @@
   top: 48px;
   height: calc(100vh - 48px);
   animation-name: goDown;
-  animation-duration: .4s;
+  animation-duration: .3s;
   animation-iteration-count: 1;
   z-index: 0;
 }
