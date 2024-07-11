@@ -7,7 +7,25 @@
     height: 20%;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    background-color: aqua;
+    justify-content: space-between;
+    background-color: rgb(48, 48, 48);
+}
+
+
+.router-links {
+    font-size: 19px;
+    background-color: rgb(43, 43, 43);
+    width: 100%;
+    height: 31%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--vt-c-white);
+    transition: 0.2s;  
+}
+
+.router-links:hover {
+    background-color: rgb(68, 68, 68);
 }
 }

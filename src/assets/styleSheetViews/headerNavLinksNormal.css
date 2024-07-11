@@ -1,15 +1,24 @@
 @media (min-width: 800px) {
 .nav-containerNormal {
     display: flex;
-    width: 30%;
+    width: 15rem;
     position: absolute;
     right: 0;
     justify-content: space-between;
     margin-right: 1.5rem;
 }
+
+.router-links-normal {
+    color: var(--vt-c-white);
+    text-decoration: none;
 }
 
-@media (max-width: 801px) {
+.router-links-normal:hover {
+    color: rgb(207, 207, 207);
+}
+}
+
+@media (max-width: 800px) {
     .nav-containerNormal {
         display: none;
     }

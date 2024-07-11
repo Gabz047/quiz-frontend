@@ -1,8 +1,9 @@
 <script setup>
-const links = [{name: 'HOME', link: '/'}, {name: 'QUIZ', link: '/quiz'}, {name: 'LOGIN', link: '/auth'}]
+import { links } from '@/utils/globalVar';
 </script>
 <template>
-    <nav class="nav-containerNormal">
-        <router-link class="router-links" v-for="link in links" :to="link.link">{{ link.name }}</router-link>
+    <nav class="nav-containerNormal">   
+        <router-link v-for="link in links" class="router-links-normal" :to="link.link">{{ link.name }}</router-link>
     </nav>
+    
 </template>

@@ -1,12 +1,10 @@
 <script setup>
 import NavLinks from './NavLinks.vue'
-import {ref} from 'vue'
-const activated = ref(false)
-
+import {activated} from '@/utils/globalVar'
 </script>
 <template>
     <span @click="activated = !activated">
-    <div class="box-menuIcon" :class="{ animar: activated }">
+    <div class="box-menuIcon" :class="{ animar: activated}">
         <div class="menu-bars"></div>
         <div class="menu-bars"></div>
         <div class="menu-bars"></div>
