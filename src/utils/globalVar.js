@@ -1,4 +1,4 @@
-import {ref} from 'vue'
+import { useAuthStore } from '@/stores/auth/auth';
+import {ref} from 'vue';
 
-export const activated = ref(false)
-export const links = [{name: 'HOME', link: '/'}, {name: 'QUIZ', link: '/quiz'}, {name: 'LOGIN', link: '/auth'}]
+export const store = useAuthStore()

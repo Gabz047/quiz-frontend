@@ -1,21 +1,23 @@
-import {ref} from 'vue'
+import {reactive, ref} from 'vue'
 import {defineStore} from 'pinia'
 
-import AuthService from '@/services/auth'
-
-
-const authService = new AuthService()
-
 export const useAuthStore = defineStore('auth', () => {
-    const user = ref({});
+    const userinfo = reactive({
+        username: null,
+        access: null,
+        refresh: null
+    })
 
-    async function setToken(token) {
-        user.value = await authService.postUserToken(token);
+    const activated = ref(false)
+
+    const links = [{name: 'HOME', link: '/'}, {name: 'QUIZ', link: '/quiz'}, {name: 'LOGIN', link: '/auth'}, {name: 'CREATE', link: '/createuser'}, {name: userinfo.username, link: '#'}]
+
+    function login(info) {
+        userinfo.username = info.username
+        userinfo.access = info.access
+        userinfo.refresh = info.refresh
     }
+    
 
-    function unsetToken() {
-        user.value = {};
-    }
-
-    return {user, setToken, unsetToken};
+    return {userinfo, login, links, activated};
 })

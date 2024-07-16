@@ -1,8 +1,9 @@
 <script setup>
-import { activated, links } from '@/utils/globalVar';
+import { useAuthStore } from '@/stores/auth/auth';
+const store = useAuthStore()
 </script>
 <template>
     <nav class="nav-container">
-        <router-link @click="activated = !activated" class="router-links" v-for="link in links" :to="link.link">{{ link.name }}</router-link>
+        <router-link @click="store.activated = !store.activated" class="router-links" v-for="link in store.links" :to="link.link">{{ link.name }}</router-link>
     </nav>
 </template>

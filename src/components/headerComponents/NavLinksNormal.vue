@@ -1,9 +1,10 @@
 <script setup>
-import { links } from '@/utils/globalVar';
+import { useAuthStore } from '@/stores/auth/auth';
+const store = useAuthStore()
 </script>
 <template>
     <nav class="nav-containerNormal">   
-        <router-link v-for="link in links" class="router-links-normal" :to="link.link">{{ link.name }}</router-link>
+        <router-link v-for="link in store.links" class="router-links-normal" :to="link.link">{{ link.name }}</router-link>
     </nav>
     
 </template>
