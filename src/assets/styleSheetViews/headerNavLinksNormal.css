@@ -12,6 +12,7 @@
     color: var(--vt-c-white);
     text-decoration: none;
     font-size: 18px;
+    font-weight: 500;
 }
 
 .router-links-normal:hover {

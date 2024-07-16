@@ -8,7 +8,8 @@ import SuspenseMenu from './SuspenseMenu.vue';
 <template>
     <header class="header-container">
         <div class="img-box">
-            <h1>Qzll</h1>
+            <img src="../../assets/images/quizicon.png" alt="">
+            <h2>Banboo</h2>
         </div>
 
         <NavLinksNormal />
