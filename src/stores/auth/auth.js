@@ -25,25 +25,35 @@ export const useAuthStore = defineStore('auth', () => {
     function login(info) {
         userinfo.email = info.email
         userinfo.password = info.password
+        userinfo.username = info.username
         userinfo.access = info.access
         userinfo.refresh = info.refresh
         window.location.reload()
     }
 
-    async function autologin(info) {
+    async function autologin(info, userpayload) {
         await axios.post('/token/', info).then((response)=>{
-            localStorage.setItem("access", response.data.access)
-            localStorage.setItem("refresh", response.data.refresh)
-
-            userinfo.username = info.email
+            userinfo.username = userpayload.username
+            userinfo.email = info.email
+            userinfo.password = info.password
             userinfo.access = response.data.access
             userinfo.refresh = response.data.refresh
-            console.log(username.value)
+            console.log(userinfo.username)
+            console.log(response.data)
+
         }).catch((error)=>{
             console.log(info)
         })
     }
+
+    async function logout() {
+        localStorage.removeItem('user')
+        localStorage.removeItem('password')
+        localStorage.removeItem('email')
+        userinfo.access = null
+        userinfo.refresh = null
+    }
     
 
-    return {userinfo, login, links, activated, username, autologin, showusername};
+    return {userinfo, login, links, activated, username, autologin, showusername, logout};
 })

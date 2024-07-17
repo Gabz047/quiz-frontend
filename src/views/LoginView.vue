@@ -9,6 +9,7 @@ const api = new API()
 const store = useAuthStore()
 
 const info = reactive({
+    username: null,
     email: '',
     password: '',
 })
@@ -24,16 +25,11 @@ async function logar() {
             console.log('logado')
             console.log(response.data.access)
             setTimeout(()=>{
-                store.login({email: info.email, password: info.password, access: response.data.access, refresh: response.data.refresh})
-
-                const username = localStorage.getItem('user')
-                const password = localStorage.getItem('password')
-                const email = localStorage.getItem("email")
-
-                localStorage.setItem('user', information.username)
-                localStorage.setItem('password', information.password)
-                localStorage.setItem('email', information.email)
-                
+                localStorage.setItem('user', info.username)
+                localStorage.setItem('password', info.password)
+                localStorage.setItem('email', info.email)
+                info.username = localStorage.getItem('user')
+                store.login({email: info.email, password: info.password, username: info.username, access: response.data.access, refresh: response.data.refresh})
             }, 2000)
         }
     }).catch((error)=> {
