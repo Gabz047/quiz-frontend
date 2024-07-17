@@ -2,8 +2,6 @@
 import {ref} from 'vue'
 import NavLinksNormal from './NavLinksNormal.vue'
 import SuspenseMenu from './SuspenseMenu.vue';
-import { useAuthStore } from '@/stores/auth/auth';
-const store = useAuthStore()
 
 </script>
 
@@ -15,7 +13,6 @@ const store = useAuthStore()
         </div>
 
         <NavLinksNormal />
-        <button @click="store.logout">LOGOUT</button>
         <SuspenseMenu />
 
     </header>

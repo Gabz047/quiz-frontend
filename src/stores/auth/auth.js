@@ -3,11 +3,8 @@ import {defineStore} from 'pinia'
 import axios from 'axios'
 
 export const useAuthStore = defineStore('auth', () => {
-    const username = ref('')
+    const islogged = ref(false)
 
-    const showusername = computed(()=>{
-        return username.value
-    })
     const userinfo = reactive({
         username: null,
         email: null,
@@ -16,10 +13,17 @@ export const useAuthStore = defineStore('auth', () => {
         refresh: null
     })
 
+    const showusername = ref('')
+
     const activated = ref(false)
 
     const links = computed((username)=>{
-        return [{name: 'HOME', link: '/'}, {name: 'QUIZ', link: '/quiz'}, {name: 'LOGIN', link: '/auth'}, {name: 'CREATE', link: '/createuser'}, {name: username, link: '#'}]
+        if (!islogged.value) {
+            return [{name: 'HOME', link: '/'}, {name: 'QUIZ', link: '/quiz'}, {name: 'LOGIN', link: '/auth'}]
+        } else {
+            return [{name: 'HOME', link: '/'}, {name: 'QUIZ', link: '/quiz'}, {name: showusername, link: '#'}]
+        }
+        
     }) 
 
     function login(info) {
@@ -28,6 +32,7 @@ export const useAuthStore = defineStore('auth', () => {
         userinfo.username = info.username
         userinfo.access = info.access
         userinfo.refresh = info.refresh
+        islogged.value = true
         window.location.reload()
     }
 
@@ -38,11 +43,13 @@ export const useAuthStore = defineStore('auth', () => {
             userinfo.password = info.password
             userinfo.access = response.data.access
             userinfo.refresh = response.data.refresh
+            islogged.value = true
             console.log(userinfo.username)
             console.log(response.data)
+            showusername.value = userinfo.username
 
         }).catch((error)=>{
-            console.log(info)
+            console.log(error)
         })
     }
 
@@ -52,8 +59,9 @@ export const useAuthStore = defineStore('auth', () => {
         localStorage.removeItem('email')
         userinfo.access = null
         userinfo.refresh = null
+        islogged.value = false
     }
     
 
-    return {userinfo, login, links, activated, username, autologin, showusername, logout};
+    return {userinfo, login, links, activated, autologin, showusername, logout, islogged, showusername};
 })

@@ -9,9 +9,9 @@ const store = useAuthStore()
 
 onMounted(() =>{
   const email = localStorage.getItem('email')
-  const username = localStorage.getItem('user')
   const password = localStorage.getItem('password')
-  store.autologin({email: email, password: password}, {username: username})
+  const usernamedata = localStorage.getItem('user')
+  store.autologin({email: email, password: password}, {username: usernamedata})
 })
 
 </script>

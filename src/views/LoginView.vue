@@ -41,6 +41,7 @@ async function logar() {
 </script>
 <template>
 <h1>login</h1>
+<input type="text" v-model="info.username" placeholder="username">
 <input type="text" v-model="info.email" placeholder="email">
 <input type="text" v-model="info.password" placeholder="password">
 <button @click="logar">login</button>
