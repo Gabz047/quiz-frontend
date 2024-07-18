@@ -49,19 +49,19 @@ async function logar() {
                 <div class="box-inputs">
                     <div class="loginboxes">
                         <div class="box-inputs-child">
-                            <mdicon name="account" :height="60" :width="60" />
+                            <mdicon class="vicon" name="account" :height="60" :width="60" fill="black" />
                         </div>
                         <input type="text" placeholder="Username" v-model="info.username">
                     </div>
                     <div class="loginboxes">
                         <div class="box-inputs-child">
-                            <mdicon name="at" :height="50" :width="50" />
+                            <mdicon class="vicon" name="at" :height="50" :width="50" />
                         </div>
                         <input type="text" placeholder="Email" v-model="info.email">
                     </div>
                     <div class="loginboxes">
                         <div class="box-inputs-child">
-                            <mdicon name="lock" :height="50" :width="50" />
+                            <mdicon class="vicon" name="lock" :height="50" :width="50" />
                         </div>
                         <input type="text" placeholder="Password" v-model="info.password"
                     </div>

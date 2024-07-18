@@ -53,11 +53,48 @@ async function createAccount() {
 }
 </script>
 <template>
-<h1>CREATE ACCOUNT</h1>
-<input type="text" placeholder="username" v-model="information.username">
-<input type="text" placeholder="email" v-model="information.email">
-<input type="text" placeholder="password" v-model="information.password">
-<button @click="createAccount">create</button>
+    <main class="main-signin">
+        <section class="section-signin">
+            <div class="container-signin">
+                <h1>Sign in</h1>
+
+                <div class="box-inputs-signin">
+                    <div class="loginboxes-signin">
+                        <div class="box-inputs-child-signin">
+                            <mdicon class="vicon" name="account" :height="50" :width="50" fill="black" />
+                        </div>
+                        <input type="text" placeholder="Username" v-model="information.username">
+                    </div>
+                    <div class="loginboxes-signin">
+                        <div class="box-inputs-child-signin">
+                            <mdicon class="vicon" name="at" :height="40" :width="40" />
+                        </div>
+                        <input type="text" placeholder="Email" v-model="information.email">
+                    </div>
+                    <div class="loginboxes-signin">
+                        <div class="box-inputs-child-signin">
+                            <mdicon class="vicon" name="lock" :height="40" :width="40" />
+                        </div>
+                        <input type="text" placeholder="Password" v-model="information.password">
+                    </div>
+                    <div class="loginboxes-signin">
+                        <div class="box-inputs-child-signin">
+                            <mdicon class="vicon" name="lock-check" :height="40" :width="40" />
+                        </div>
+                        <input type="text" placeholder="Confirm password">
+                    </div>
+                </div>
+                
+                <div class="box-btn-signin">
+                    <button @click="createAccount">Sign in</button>
+                </div>
+                <div class="box-company-mark">
+                    <img src="../assets/images/baboonblack.png">
+                    <p>Banboo inc.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
 <div class="succed" v-if="succed">
 <p>Conta criada com sucesso!</p>

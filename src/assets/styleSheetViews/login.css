@@ -128,3 +128,6 @@
     height: 100%;
 }
 
+.vicon svg {
+    fill: rgb(170, 170, 170);
+}
