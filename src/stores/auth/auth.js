@@ -21,7 +21,7 @@ export const useAuthStore = defineStore('auth', () => {
         if (!islogged.value) {
             return [{name: 'HOME', link: '/'}, {name: 'QUIZ', link: '/quiz'}, {name: 'LOGIN', link: '/auth'}]
         } else {
-            return [{name: 'HOME', link: '/'}, {name: 'QUIZ', link: '/quiz'}, {name: showusername, link: '#'}]
+            return [{name: showusername, link: '#'}, {name: 'HOME', link: '/'}, {name: 'QUIZ', link: '/quiz'}]
         }
         
     }) 

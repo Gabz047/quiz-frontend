@@ -39,10 +39,46 @@ async function logar() {
     })
 }
 </script>
-<template>
-<h1>login</h1>
-<input type="text" v-model="info.username" placeholder="username">
-<input type="text" v-model="info.email" placeholder="email">
-<input type="text" v-model="info.password" placeholder="password">
-<button @click="logar">login</button>
-</template>
+
+ <template>
+    <main class="main-login">
+        <section class="section-login">
+            <div class="container-login">
+                <h1>Login</h1>
+
+                <div class="box-inputs">
+                    <div class="loginboxes">
+                        <div class="box-inputs-child">
+                            <mdicon name="account" :height="60" :width="60" />
+                        </div>
+                        <input type="text" placeholder="Username" v-model="info.username">
+                    </div>
+                    <div class="loginboxes">
+                        <div class="box-inputs-child">
+                            <mdicon name="at" :height="50" :width="50" />
+                        </div>
+                        <input type="text" placeholder="Email" v-model="info.email">
+                    </div>
+                    <div class="loginboxes">
+                        <div class="box-inputs-child">
+                            <mdicon name="lock" :height="50" :width="50" />
+                        </div>
+                        <input type="text" placeholder="Password" v-model="info.password"
+                    </div>
+                </div>
+                <div class="box-aditional-info">
+                    <p>forgot password?</p>
+                    <p>or</p>
+                    <RouterLink to="/createuser">Create account</RouterLink>
+                </div>
+                <div class="box-btn-login">
+                    <button @click="logar">Login</button>
+                </div>
+                <div class="box-company-mark">
+                    <img src="../assets/images/baboonblack.png">
+                    <p>Banboo inc.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+ </template>

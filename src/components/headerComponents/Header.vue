@@ -8,7 +8,7 @@ import SuspenseMenu from './SuspenseMenu.vue';
 <template>
     <header class="header-container">
         <div class="img-box">
-            <img src="../../assets/images/quizicon.png" alt="">
+            <img src="../../assets/images/baboonpurple.png" alt="">
             <h2>Banboo</h2>
         </div>
 

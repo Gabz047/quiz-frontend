@@ -1,5 +1,6 @@
 /* color palette from <https://github.com/vuejs/theme> */
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --vt-c-white: #ffffff;
@@ -23,6 +24,7 @@
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
   --vt-f-kronaone: "Krona One", sans-serif;
+  --vt-f-epilogue: "Epilogue", sans-serif;
 }
 
 /* semantic color variables for this project */
