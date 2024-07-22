@@ -1,43 +1,7 @@
 <script setup>
 import {reactive, ref} from 'vue';
 import axios from 'axios';
-import { useAuthStore } from '@/stores/auth/auth';
-import API from '@/api/api';
-
-const api = new API()
-
-const store = useAuthStore()
-
-const info = reactive({
-    username: null,
-    email: '',
-    password: '',
-})
-
-async function logar() {
-    const user = {
-        email: info.email,
-        password: info.password
-    }
-
-    const token = await axios.post('token/', user).then((response) =>{
-        if (response.status === 200) {
-            console.log('logado')
-            console.log(response.data.access)
-            setTimeout(()=>{
-                localStorage.setItem('user', info.username)
-                localStorage.setItem('password', info.password)
-                localStorage.setItem('email', info.email)
-                info.username = localStorage.getItem('user')
-                store.login({email: info.email, password: info.password, username: info.username, access: response.data.access, refresh: response.data.refresh})
-            }, 2000)
-        }
-    }).catch((error)=> {
-        
-            console.log('erro')
-        
-    })
-}
+import '@passageidentity/passage-elements/passage-auth'
 </script>
 
  <template>
@@ -51,19 +15,19 @@ async function logar() {
                         <div class="box-inputs-child">
                             <mdicon class="vicon" name="account" :height="45" :width="45" fill="black" />
                         </div>
-                        <input type="text" placeholder="Username" v-model="info.username">
+                        <input type="text" placeholder="Username">
                     </div>
                     <div class="loginboxes">
                         <div class="box-inputs-child">
                             <mdicon class="vicon" name="at" :height="35" :width="35" />
                         </div>
-                        <input type="text" placeholder="Email" v-model="info.email">
+                        <input type="text" placeholder="Email" >
                     </div>
                     <div class="loginboxes">
                         <div class="box-inputs-child">
                             <mdicon class="vicon" name="lock" :height="35" :width="35" />
                         </div>
-                        <input type="text" placeholder="Password" v-model="info.password">
+                        <input type="text" placeholder="Password" >
                     </div>
                 </div>
                 <div class="box-aditional-info">
@@ -72,7 +36,7 @@ async function logar() {
                     <RouterLink to="/createuser">Create account</RouterLink>
                 </div>
                 <div class="box-btn-login">
-                    <button @click="logar">Login</button>
+                    <button>Login</button>
                 </div>
                 <div class="box-company-mark">
                     <img src="../assets/images/baboonblack.png">
@@ -80,5 +44,8 @@ async function logar() {
                 </div>
             </div>
         </section>
+        <div class="authContainer">
+            <passage-auth app-id="U4AeJFba6uqOaCeuhhmksac8"></passage-auth>
+        </div>
     </main>
  </template>

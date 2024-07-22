@@ -1,26 +1,34 @@
 <script setup>
-import API from '@/api/api';
-import { onMounted, ref } from 'vue';
-import { useAuthStore } from '@/stores/auth/auth';
-import '@passageidentity/passage-elements/passage-auth'
+import { onMounted } from 'vue';
+import { PassageUser } from '@passageidentity/passage-elements/passage-user';
+import { useAuthStore } from '../stores/auth/auth';
+const authStore = useAuthStore()
 
-const api = new API
-const users = ref([])
-const store = useAuthStore()
+const getUserInfo = async()=> {
+  try {
+    const authToken = localStorage.getItem('psg_auth_token')
+    const passageUser = new passageUser(authToken)
+    const user = await passageUser.userInfo(authToken)
 
-onMounted(async () =>{
-  if(store.islogged == true) {
-    users.value = await api.Listar('api/usuarios/')
-    console.log(users.value)
+    if (user) {
+      await authStore.setToken(authToken)
+    } else {
+      authStore.unsetToken()
+    }
   }
+  catch (error) {
+    authStore.unsetToken()
+  }
+}
+
+onMounted(()=>{
+  getUserInfo()
 })
 </script>
 
 <template>
   <main>
     <p v-for="user in users"> {{ user.username }} </p>
+    <p>OLÁ</p>
   </main>
-  <div class="authContainer">
-  <passage-auth :app-id="appId"></passage-auth>
-</div>
 </template>
