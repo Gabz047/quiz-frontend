@@ -8,7 +8,7 @@ import * as mdijs from '@mdi/js'
 
 import App from './App.vue'
 import router from './router'
-import './plugins/axios'
+import './plugins/api'
 import axios from 'axios'
 
 const app = createApp(App)
